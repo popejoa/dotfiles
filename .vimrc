@@ -1,11 +1,14 @@
 set nocompatible
 scriptencoding utf-8
 
+let g:homedir = '/home/hide'
+"let g:homedir = '~'
+
 " スワップファイルとバックアップファイルの出力先を指定
 set backup
 set swapfile
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+"set backupdir=g:homedir."/.vim/backup"
+"set directory=g:homedir."/.vim/swap"
 
 " 行番号を表示
 set number
@@ -48,9 +51,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 if has('vim_starting')
-      set runtimepath+=~/.vim/bundle/neobundle.vim/
+    execute "set runtimepath+=".g:homedir."/.vim/bundle/neobundle.vim/"
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#rc(expand(g:homedir.'/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundle
@@ -66,3 +69,4 @@ syntax enable
 colorscheme hybrid
 
 filetype plugin indent on
+
